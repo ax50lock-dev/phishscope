@@ -1,0 +1,10 @@
+{
+  "name": "phishscope",
+  "version": "6.1.0",
+  "description": "Browser extension that analyzes URLs, pages, and emails for phishing and scam indicators, with plain-language explanations.",
+  "private": true,
+  "scripts": {
+    "test": "node test/run.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "PhishScope \u2014 URL Risk Analyzer",
+  "version": "6.1.0",
+  "description": "Scam Shield with plain-language warnings: phishing, tech-support, fake-virus, giveaway, crypto & shop scams. High-risk warning overlay, Simple/Normal/Expert modes, optional VirusTotal/PhishTank/RDAP lookups and AI explanations.",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "PhishScope \u2014 analyze this page"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.virustotal.com/*",
+    "https://checkurl.phishtank.com/*",
+    "https://rdap.org/*",
+    "https://api.anthropic.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "lib/analyzer.js",
+        "overlay.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
